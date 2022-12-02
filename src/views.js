@@ -1,5 +1,6 @@
+import React, { useState } from 'react'
 import Button from './button.js'
-import {Size} from './helpers.js';
+import {Size} from './helpers.js'
 
 const size=Size()
 
@@ -43,7 +44,7 @@ export function Login(props) {
         textDecoration: 'underline',
         cursor: 'pointer',
     }
-    return <div><h1>Sign In</h1><UserForm type="login" next="welcome" changeView={props.changeView} /></div>
+    return <div><h1>Sign In</h1><UserForm type="login" next="welcome"  handleChange={props.handleChange} changeView={props.changeView} /></div>
 }
 
 export function Register(props) {
@@ -52,10 +53,12 @@ export function Register(props) {
         textDecoration: 'underline',
         cursor: 'pointer',
     }
-    return <div><h1>Register</h1><UserForm  type="reg" next="rev1" changeView={props.changeView}/></div>
+    return <div><h1>Register</h1><UserForm  type="reg" next="rev1" handleChange={props.handleChange} changeView={props.changeView}/></div>
 }
 
 export function UserForm(props){
+
+    console.log('form',props)
 
     const revSty={
         ...FLEX_BASE,
@@ -101,14 +104,23 @@ export function UserForm(props){
                     {(props.type==='reg')
                         ?   <div style={rowSty}>
                                 <label style={headSty}>Name</label>
-                                <input style={inputSty} type="text"></input>
+                                <input 
+                                    onChange={(event)=>props.handleChange(event.target.value)} 
+                                    style={inputSty} 
+                                    type="text" 
+                                    name='username'>
+                                </input>
                             </div>
                         : null
                     }
 
                     <div style={rowSty}>
                         <label style={headSty}>Username (use email):</label>
-                        <input style={inputSty} type="text"></input>
+                        <input 
+                                    onChange={(event)=>props.handleChange(event.target.value)} 
+                                    style={inputSty} 
+                                    type="text" 
+                                    name='username'></input>
                     </div>
                     <div style={rowSty}>
                         <label style={headSty}>Password</label>

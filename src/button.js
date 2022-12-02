@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 export default function Button(props) {
     const [hovering,changeHover] = useState(false);
 
+    console.log('button',props)
+
     const buttonStyle = {
         borderRadius: '5px',
         backgroundColor: 'white',
@@ -21,7 +23,10 @@ export default function Button(props) {
         border: '1px solid white'
     }
 
-    return <button onMouseEnter={()=>changeHover(true)} onMouseLeave={()=>changeHover(false)} style={(hovering)?buttonHover:buttonStyle} onClick={()=>props.changeView(props.next)}>
+    return <button  onMouseEnter={()=>changeHover(true)} 
+                    onMouseLeave={()=>changeHover(false)} 
+                    style={(hovering)?buttonHover:buttonStyle} 
+                    onClick={()=>props.changeView(props.next,props.username)}>
             {props.text}
             </button>
 }

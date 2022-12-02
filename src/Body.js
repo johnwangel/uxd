@@ -29,8 +29,8 @@ class Body extends Component {
         <div style={bodyContainer}>
         {(this.props.view==='welcome')?<Welcome changeView={this.props.changeView}/>:null}
         {(this.props.view==='auth')?<Auth changeView={this.props.changeView}/>:null}
-        {(this.props.view==='login')?<Login changeView={this.props.changeView}/>:null}
-        {(this.props.view==='register')?<Register changeView={this.props.changeView}/>:null}
+        {(this.props.view==='login')?<Login handleChange={this.props.handleChange} changeView={this.props.changeView}/>:null}
+        {(this.props.view==='register')?<Register handleChange={this.props.handleChange} changeView={this.props.changeView}/>:null}
         {(this.props.view==='rev1')?<Review1 changeView={this.props.changeView}/>:null}
         {(this.props.view==='rev2')?<Review2 changeView={this.props.changeView}/>:null}
         {(this.props.view==='rev3')?<Review3 changeView={this.props.changeView}/>:null}

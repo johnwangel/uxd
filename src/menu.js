@@ -15,12 +15,18 @@ const FLEX_BASE ={
 class Menu extends Component {
   constructor(props) {
     super(props);
-    this.state = { view: 'welcome' }
+    this.state = { view: 'welcome', username: undefined }
     this.handleClick=this.handleClick.bind(this);
+    this.handleChange=this.handleChange.bind(this);
   }
 
   handleClick(view){
-    this.setState({view});
+    this.setState({view})
+  }
+
+  handleChange(username){
+    console.log(username)
+    this.setState({username})
   }
 
   render() {
@@ -68,10 +74,13 @@ class Menu extends Component {
             <div style={srch}><div style={spc}>Search:</div> <input type='text'></input><div style={spc} onClick={()=>this.handleClick('profile')}>&#x1f50d;</div></div>
         </div>
         <Button text='Write a Review' next="auth" changeView={this.handleClick} />
-        <Button text='Sign In' next="login" changeView={this.handleClick} />
+        {(this.state.username)
+          ? <div>Welcome {this.state.username}</div>
+          : <Button text='Sign In' next="login" changeView={this.handleClick}/>
+        }
         <div style={hm} onClick={()=>this.handleClick('welcome')}>&#8962;</div>
       </div>
-      <Body view={this.state.view} changeView={this.handleClick} />
+      <Body view={this.state.view} handleChange={this.handleChange} changeView={this.handleClick} />
     </>
     )
   }
