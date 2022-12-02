@@ -12,8 +12,6 @@ const FLEX_BASE ={
 }
 
 export function Review1(props) {
-    const buttonStyle = {
-    }
     return  <div>
                 <ReviewForm step="School" number='1' value='NJIT' changeView={props.changeView} />
                 <Button text='Next' next='rev2' changeView={props.changeView} />
@@ -22,8 +20,6 @@ export function Review1(props) {
 }
 
 export function Review2(props) {
-    const buttonStyle = {
-    }
     return  <div>
                 <ReviewForm step="Professor" number='2' value='Lynette Fromme, History' changeView={props.changeView} />
                 <Button text='Next' next='rev3' changeView={props.changeView} />
@@ -32,8 +28,6 @@ export function Review2(props) {
 }
 
 export function Review3(props) {
-    const buttonStyle = {
-    }
     return  <div>
                 <ReviewForm step="Class" number='3' value='History 203 - Colonial America' changeView={props.changeView} />
                 <Button text='Next' next='rev4' changeView={props.changeView} />

@@ -45,12 +45,22 @@ class Menu extends Component {
       marginBottom: '15px',
     }
 
+    const srch = {
+      ...FLEX_BASE
+    }
+
+    const spc = {
+      marginLeft: '5px',
+      marginRight: '5px',
+      cursor: 'pointer',
+    }
+
     return (
     <>
       <div className="menu" style={menuSty}>
         <div style={itemSty}>Grade My <span style={plusStyle}>+</span>eacher</div>
         <div style={itemSty}>
-            <div>Search: <input type='text'></input></div>
+            <div style={srch}><div style={spc}>Search:</div> <input type='text'></input><div style={spc} onClick={()=>this.handleClick('profile')}>&#x1f50d;</div></div>
         </div>
         <Button text='Write a Review' next="auth" changeView={this.handleClick} />
         <Button text='Sign In' next="login" changeView={this.handleClick} />

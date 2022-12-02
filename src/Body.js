@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Size} from './helpers.js';
 import {Welcome,Auth,Login,Register,Thanks} from './views.js'
 import {Review1,Review2,Review3,Review4,Review5} from './review.js'
+import {Profile} from './profile.js'
 
 const size = Size()
 
@@ -36,6 +37,7 @@ class Body extends Component {
         {(this.props.view==='rev4')?<Review4 changeView={this.props.changeView}/>:null}
         {(this.props.view==='rev5')?<Review5 changeView={this.props.changeView}/>:null}
         {(this.props.view==='thanks')?<Thanks changeView={this.props.changeView}/>:null}
+        {(this.props.view==='profile')?<Profile changeView={this.props.changeView}/>:null}
         </div>
       </div>
     )
