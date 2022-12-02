@@ -61,6 +61,7 @@ export function Profile(props) {
         color: 'white',
         width: '200px',
         height: '50px',
+        cursor: 'pointer',
     }
 
     const heartSty = {
@@ -95,7 +96,7 @@ export function Profile(props) {
                 
                 <div style={addInfo}>
                     <div style={heartSty}>&#9825;</div>
-                    <div style={addButton}>Add Your Review</div>
+                    <div style={addButton} onClick={()=>props.changeView('rev4')}>Add Your Review</div>
                     <div style={repLink}>Report a Problem</div>
                 </div>
 
@@ -111,7 +112,6 @@ export function Review(props) {
     const revInfo = {
         ...FLEX_BASE,
         padding: '25px',
-
     }
 
     const rating = {

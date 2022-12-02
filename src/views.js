@@ -116,7 +116,6 @@ export function UserForm(props){
                     </div>
                  </div>
                  <Button text='Go' next={props.next} changeView={props.changeView} />
-
             </div>
 }
 
@@ -126,5 +125,8 @@ export function Thanks(props) {
         textDecoration: 'underline',
         cursor: 'pointer',
     }
-    return <div><h1>Thank you for Leaving a Review!</h1></div>
+    return <div>
+                <h1>Thank you for Leaving a Review!</h1>
+                <div style={linkStyle} onClick={()=>props.changeView('profile')}>Go to Teacher Profile</div>
+            </div>
 }

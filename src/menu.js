@@ -55,6 +55,11 @@ class Menu extends Component {
       cursor: 'pointer',
     }
 
+    const hm = {
+      fontSize: '24pt',
+      cursor: 'pointer',
+    }
+
     return (
     <>
       <div className="menu" style={menuSty}>
@@ -64,6 +69,7 @@ class Menu extends Component {
         </div>
         <Button text='Write a Review' next="auth" changeView={this.handleClick} />
         <Button text='Sign In' next="login" changeView={this.handleClick} />
+        <div style={hm} onClick={()=>this.handleClick('welcome')}>&#8962;</div>
       </div>
       <Body view={this.state.view} changeView={this.handleClick} />
     </>
