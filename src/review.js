@@ -4,6 +4,8 @@ import {Size} from './helpers.js';
 
 const size=Size()
 
+const categories = ['Clarity','Materials','Methodology','Fairness']
+
 const FLEX_BASE ={
     display: 'flex',
     flexDirection: 'row',
@@ -11,8 +13,57 @@ const FLEX_BASE ={
     alignItems: 'center',
 }
 
-export function Review1(props) {
+export function ReviewSingle(props){
+
+    const rowSty={
+        ...FLEX_BASE,
+        flexDirection: 'column',
+        marginBottom: '25px',
+    }
+
+    const textStyle = {
+        width: (size.width<600) ? '200px' : '400px',
+        height: '150px',
+        padding: '15px',
+        fontSize: '12pt',
+    }
+
+    const belowSty = {
+        marginBottom: '25px'
+    }
+
     return  <div>
+                <ReviewForm step="School" number='1' value='NJIT' changeView={props.changeView} />
+                <ReviewForm step="Professor" number='2' value='Lynette Fromme, History' changeView={props.changeView} />
+                <ReviewForm step="Class" number='3' value='History 203 - Colonial America' changeView={props.changeView} />
+                <h1>Grade Your Teacher</h1>
+                <div style={rowSty}>{categories.map( (item,index)=><Grades key={index} label={item} name={`grade${index}`}/>)}</div>
+                <h1>Add Comments (optional)</h1>
+                <div style={belowSty}>
+                    <textarea style={textStyle}></textarea>
+                </div>
+                <Button text='Finish' next='thanks' changeView={props.changeView} />
+            </div>
+}
+
+export function Review1(props) {
+
+    const cont = {
+        position: 'relative',
+    }
+
+    const link = {
+        position: 'absolute',
+        top: '0',
+        right: '0',
+        color: 'blue',
+        textDecoration: 'underline',
+        fontSize: '10pt',
+        cursor: 'pointer',
+    }
+
+    return  <div style={cont}>
+                <div onClick={()=>props.changeView('singlePage')} style={link}>Switch to Single-Page Form</div>
                 <ReviewForm step="School" number='1' value='NJIT' changeView={props.changeView} />
                 <Button text='Next' next='rev2' changeView={props.changeView} />
                 <Step first="1" last="5" />
@@ -36,7 +87,7 @@ export function Review3(props) {
 }
 
 export function Review4(props) {
-    const categories = ['Clarity','Materials','Methodology','Fairness']
+
     const rowSty={
         ...FLEX_BASE,
         flexDirection: 'column',
