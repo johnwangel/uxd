@@ -3,6 +3,13 @@ import {Pdata} from './profile_data.js'
 
 const pd=Pdata
 
+const colors = {
+    copper: '#be7434',
+    lblue: '#5dabf4',
+    dblue: '#4775a0',
+    gray: '#434343'
+}
+
 const size=Size()
 
 const FLEX_BASE ={
@@ -14,12 +21,13 @@ const FLEX_BASE ={
 
 export function Profile(props) {
     const profileSty = {
-        border: '1px solid black',
         padding: '25px 0 0'
     }
 
     const profSty = {
         ...FLEX_BASE,
+        border: `5px solid ${colors.copper}`,
+        borderBottom: 'none'
     }
 
     const profInfo = {
@@ -38,6 +46,8 @@ export function Profile(props) {
         fontWeight: 'bold',
         paddingBottom: '10px',
         fontSize: '24pt',
+        color: colors.copper,
+        marginTop: '5px',
     }
 
     const grade = {
@@ -51,13 +61,14 @@ export function Profile(props) {
         ...FLEX_BASE,
         alignItems: 'flex-end',
         padding: '25px',
-
+        border: `5px solid ${colors.copper}`,
+        borderTop: 'none',
     }
 
     const addButton = {
         ...FLEX_BASE,
         justifyContent: 'center',
-        backgroundColor: 'blue',
+        backgroundColor: colors.dblue,
         color: 'white',
         width: '200px',
         height: '50px',
@@ -71,9 +82,10 @@ export function Profile(props) {
 
     const revHd = {
         width: '100%',
-        backgroundColor: 'black',
+        backgroundColor: colors.dblue,
         color: 'white',
         padding: '20px 0',
+        margin: '0'
     }
 
     const repLink = {
@@ -81,9 +93,14 @@ export function Profile(props) {
         fontSize: '10pt',
     }
 
+    const imgSty = {
+        width: '50%',
+    }
+
     return  <div style={profileSty}>
                 <div style={profSty}>
                     <div style={profInfo}>
+                        <img style={imgSty} src={`${process.env.PUBLIC_URL}/img/${pd.image}`} />
                         <div style={profName}>{pd.name}</div>
                         <div>{pd.role} of {pd.dept} at {pd.inst}</div>
                     </div>
@@ -105,8 +122,10 @@ export function Profile(props) {
 
 export function Review(props) {
     const revSty = {
-        borderBottom: '1px solid black',
         padding: '25px 0 0',
+        borderLeft: `5px solid ${colors.dblue}`,
+        borderRight: `5px solid ${colors.dblue}`,
+        borderBottom: `40px solid ${colors.dblue}`,
     }
 
     const revInfo = {
@@ -138,7 +157,7 @@ export function Review(props) {
         fontWeight: 'bold',
         fontSize: '24pt',
         marginBottom: '10px',
-        color: 'blue',
+        color: colors.copper,
     }
 
     const userRating = {
@@ -151,17 +170,16 @@ export function Review(props) {
 
     const commHd = {
         padding: '10px 0',
-        backgroundColor: 'gray',
+        backgroundColor: colors.lblue,
         color: 'white',
-        borderTop: '1px solid black',
-        borderBottom: '1px solid black',
         fontSize: '18pt',
         fontWeight: 'bold',
     }
 
     const commt = {
-        backgroundColor: 'lightgray',
+        backgroundColor: 'white',
         padding: '25px',
+        textAlign: 'left'
     }
 
     return <div style={revSty}>

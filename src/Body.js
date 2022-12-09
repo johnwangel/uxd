@@ -22,8 +22,7 @@ class Body extends Component {
     const bodyContainer = {
       width: (size.width < 600 ) ? '90vw' : '50vw'
     }
-
-
+    
     return (
       <div className="body" style={bodySty}>
         <div style={bodyContainer}>

@@ -5,6 +5,7 @@ export const Pdata = {
     inst: 'NJIT',
     avg: 'A+',
     count: '25',
+    image: 'lynettefromme.jpg',
     reviews: [
         {
             username: 'mrpresident',
