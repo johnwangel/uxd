@@ -15,17 +15,16 @@ const FLEX_BASE ={
 class Menu extends Component {
   constructor(props) {
     super(props);
-    this.state = { view: 'welcome', username: undefined }
+    this.state = { view: 'welcome', username: undefined, profile: undefined }
     this.handleClick=this.handleClick.bind(this);
     this.handleChange=this.handleChange.bind(this);
   }
 
-  handleClick(view){
-    this.setState({view})
+  handleClick(view,profile=undefined){
+    this.setState({view,profile})
   }
 
   handleChange(username){
-    console.log(username)
     this.setState({username})
   }
 
@@ -71,7 +70,7 @@ class Menu extends Component {
       <div className="menu" style={menuSty}>
         <div style={itemSty}>Grade My <span style={plusStyle}>+</span>eacher</div>
         <div style={itemSty}>
-            <div style={srch}><div style={spc}>Search:</div> <input type='text'></input><div style={spc} onClick={()=>this.handleClick('profile')}>&#x1f50d;</div></div>
+            <div style={srch}><div style={spc}>Search:</div> <input type='text'></input><div style={spc} onClick={()=>this.handleClick('search1')}>&#x1f50d;</div></div>
         </div>
         <Button text='Write a Review' next="auth" changeView={this.handleClick} />
         {(this.state.username)
@@ -80,7 +79,7 @@ class Menu extends Component {
         }
         <div style={hm} onClick={()=>this.handleClick('welcome')}>&#8962;</div>
       </div>
-      <Body view={this.state.view} handleChange={this.handleChange} changeView={this.handleClick} />
+      <Body view={this.state.view} profile={this.state.profile} handleChange={this.handleChange} changeView={this.handleClick} />
     </>
     )
   }

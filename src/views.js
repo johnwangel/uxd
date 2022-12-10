@@ -139,6 +139,6 @@ export function Thanks(props) {
     }
     return <div>
                 <h1>Thank you for Leaving a Review!</h1>
-                <div style={linkStyle} onClick={()=>props.changeView('profile')}>Go to Teacher Profile</div>
+                <div style={linkStyle} onClick={()=>props.changeView('profile',-1)}>Go to Teacher Profile</div>
             </div>
 }
