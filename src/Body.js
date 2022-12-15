@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Size} from './helpers.js';
-import {Welcome,Auth,Login,Register,Thanks} from './views.js'
+import {Welcome,Auth,Login,Register,Thanks,Confirm} from './views.js'
 import {ReviewSingle,Review1,Review2,Review3,Review4,Review5} from './review.js'
 import {Profile} from './profile.js'
 import {SearchResults} from './search.js'
@@ -40,6 +40,7 @@ class Body extends Component {
         {(this.props.view==='thanks')?<Thanks changeView={this.props.changeView}/>:null}
         {(this.props.view==='profile')?<Profile changeView={this.props.changeView} profile={this.props.profile} />:null}
         {(this.props.view==='search1')?<SearchResults changeView={this.props.changeView}/>:null}
+        {(this.props.view==='confirm')?<Confirm changeView={this.props.changeView}/>:null}
         </div>
       </div>
     )

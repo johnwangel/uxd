@@ -53,7 +53,19 @@ export function Register(props) {
         textDecoration: 'underline',
         cursor: 'pointer',
     }
-    return <div><h1>Register</h1><UserForm  type="reg" next="rev1" handleChange={props.handleChange} changeView={props.changeView}/></div>
+    return <div><h1>Register</h1><UserForm  type="reg" next="confirm" handleChange={props.handleChange} changeView={props.changeView}/></div>
+}
+
+export function Confirm(props) {
+    const inputStyle = {
+        margin: '10px 0',
+    }
+    return <div>
+                <h1>Confirmation Code</h1>
+                <div>Please enter the 6-digit code sent to your email address:</div>
+                <div style={inputStyle}><input type='text'></input></div>
+                <Button text='Submit' next='rev1' changeView={props.changeView} />
+              </div>
 }
 
 export function UserForm(props){
