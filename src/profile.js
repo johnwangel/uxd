@@ -1,5 +1,5 @@
 import {Size} from './helpers.js';
-import {Pdata,Smith} from './profile_data.js'
+import {Pdata,Smith,Math} from './profile_data.js'
 
 const colors = {
     copper: '#be7434',
@@ -18,8 +18,14 @@ const FLEX_BASE ={
 }
 
 export function Profile(props) {
+    let pd;
 
-    let pd = (props.profile===-1) ? Pdata : Smith[props.profile]
+    console.log('profile',props)
+    let code= props.profile
+    let arr = code.split(':')
+    if (arr[0]==-1) pd=Pdata
+    if (arr[0]==1) pd=Smith[arr[1]]
+    if (arr[0]==2) pd=Math[arr[1]]
 
     const profileSty = {
         padding: '25px 0 0'

@@ -16,7 +16,6 @@ export function Welcome(props) {
         ...FLEX_BASE,
         alignItems: 'center',
         justifyContent: 'center',
-
     }
 
     const plusStyle={
@@ -69,9 +68,7 @@ export function Confirm(props) {
 }
 
 export function UserForm(props){
-
-    console.log('form',props)
-
+    
     const revSty={
         ...FLEX_BASE,
         flexDirection: 'column',

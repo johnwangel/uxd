@@ -39,7 +39,8 @@ class Body extends Component {
         {(this.props.view==='singlePage')?<ReviewSingle changeView={this.props.changeView}/>:null}
         {(this.props.view==='thanks')?<Thanks changeView={this.props.changeView}/>:null}
         {(this.props.view==='profile')?<Profile changeView={this.props.changeView} profile={this.props.profile} />:null}
-        {(this.props.view==='search1')?<SearchResults changeView={this.props.changeView}/>:null}
+        {(this.props.view==='search1')?<SearchResults which='1' changeView={this.props.changeView}/>:null}
+        {(this.props.view==='search2')?<SearchResults which='2' changeView={this.props.changeView}/>:null}
         {(this.props.view==='confirm')?<Confirm changeView={this.props.changeView}/>:null}
         </div>
       </div>

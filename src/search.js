@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import {Size} from './helpers.js'
-import {Smith} from './profile_data.js'
-
-const pd=Smith
+import {Smith,Math} from './profile_data.js'
 
 const colors = {
     copper: '#be7434',
@@ -21,9 +19,12 @@ const FLEX_BASE ={
 }
 
 export function SearchResults(props){
+    
+ const pd=(props.which==1)?Smith:Math
+
  return <div>
             <h1>Search Results</h1>
-            {pd.map((prof,key)=><Result key={key} index={key} pd={prof} changeView={props.changeView}/>)}
+            {pd.map((prof,key)=><Result key={key} index={`${props.which}:${key}`} pd={prof} changeView={props.changeView}/>)}
         </div>
 }
 
@@ -114,15 +115,20 @@ export function Result(props) {
         height: '150px',
     }
 
+    const courseLink = {
+        textDecoration: 'underline',
+        cursor: 'pointer',
+        zIndex: '10',
+    }
+
     return  <div style={profileSty}>
                 <div onMouseEnter={()=>changeHover(true)} 
                     onMouseLeave={()=>changeHover(false)}
-                    onClick={ ()=>props.changeView('profile',props.index) }
                     style={(hovering)?profHover:profSty}>
-                    <img style={imgSty} src={`${process.env.PUBLIC_URL}/img/${props.pd.image}`} />
+                    <img style={imgSty} onClick={ ()=>props.changeView('profile',props.index) } src={`${process.env.PUBLIC_URL}/img/${props.pd.image}`} />
                     <div style={profInfo}>
-                        <div style={profName}>{props.pd.name}</div>
-                        <div>{props.pd.role} of {props.pd.dept} at {props.pd.inst}</div>
+                        <div onClick={ ()=>props.changeView('profile',props.index) } style={profName}>{props.pd.name}</div>
+                        <div>{props.pd.role} of <span style={courseLink} onClick={()=>props.changeView('search2')}>{props.pd.dept}</span> at {props.pd.inst}</div>
                     </div>
                     <div style={gradeInfo}>Average Grade: <span style={grade}>{props.pd.avg}</span> based on {props.pd.count} reviews</div>
                 </div>
